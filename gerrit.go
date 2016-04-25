@@ -106,6 +106,8 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 	// Apply Authentication
 	c.addAuthentication(req)
 
+	req.Header.Add("Content-Type", "application/json")
+
 	// Request compact JSON
 	// See https://gerrit-review.googlesource.com/Documentation/rest-api.html#output
 	req.Header.Add("Accept", "application/json")
